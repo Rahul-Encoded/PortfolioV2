@@ -13,37 +13,19 @@ const ParticlesBackground = () => {
         canvas.height = window.innerHeight;
         const c = canvas.getContext("2d");
 
-        // Constants
         const MAX_VELOCITY = 2;
         const MIN_RADIUS = 10;
         const MAX_RADIUS = 20;
-        const INTERACTION_RADIUS = 50;
-        // const MAX_SPEED = 5;
-        const OPACITY_INCREMENT = 0.02;
-        const MAX_OPACITY = 0.5;
         const MIN_SEPARATION = 1;
         const DAMPING = 1;
         const RESTITUTION = 1;
-        // const SEPARATION_SPEED = 0.5;
 
-        const COLOR_PALETTE = ["#FF6B6B", "#FFD93D", "#6BCB77", "#4D96FF", "#FF6BA3"];
+        const COLOR_PALETTE = ["#FF6B6B", "#FFD93D", "#6BCB77", "#4D96FF", "#FF6BA3", "#8e24aa"];
 
-        const mouse = { x: undefined, y: undefined };
-
-				const calculateParticles = () => {
-					const area = window.innerWidth * window.innerHeight;
-					return Math.floor(area / 10000); // Adjust particle density dynamically
-			};
-
-        canvas.addEventListener("mousemove", (event) => {
-            mouse.x = event.clientX;
-            mouse.y = event.clientY;
-        });
-
-        canvas.addEventListener("mouseleave", () => {
-            mouse.x = undefined;
-            mouse.y = undefined;
-        });
+        const calculateParticles = () => {
+            const area = window.innerWidth * window.innerHeight;
+            return Math.floor(area / 10000);
+        };
 
         window.addEventListener("resize", () => {
             canvas.width = window.innerWidth;
@@ -116,21 +98,28 @@ const ParticlesBackground = () => {
                     y: randomFloat(-MAX_VELOCITY, MAX_VELOCITY),
                 };
                 this.mass = radius * radius * Math.PI;
-                this.opacity = 0;
             }
 
             draw() {
                 c.beginPath();
                 c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+            
+                // Glowing effect using shadowBlur
+                c.shadowBlur = 20;
+                c.shadowColor = this.color;
+            
+                // Smooth glowing effect by oscillating opacity
+                const glowFactor = Math.sin(Date.now() * 0.005 + this.x * 0.02) * 0.5 + 0.5; // Pulsating glow
+            
                 c.save();
-                c.globalAlpha = this.opacity;
+                c.globalAlpha = glowFactor; // Dynamic glow effect
                 c.fillStyle = this.color;
                 c.fill();
                 c.restore();
-                c.strokeStyle = this.color;
-                c.stroke();
+            
                 c.closePath();
             }
+            
 
             update(particles) {
                 this.draw();
@@ -140,15 +129,6 @@ const ParticlesBackground = () => {
                     const distance = getDistance(this.x, this.y, particles[i].x, particles[i].y);
                     if (distance < this.radius + particles[i].radius + MIN_SEPARATION) {
                         resolveCollision(this, particles[i]);
-                    }
-                }
-
-                if (mouse.x && mouse.y) {
-                    const distance = getDistance(mouse.x, mouse.y, this.x, this.y);
-                    if (distance < INTERACTION_RADIUS) {
-                        this.opacity = Math.min(this.opacity + OPACITY_INCREMENT, MAX_OPACITY);
-                    } else {
-                        this.opacity = Math.max(this.opacity - OPACITY_INCREMENT, 0);
                     }
                 }
 
@@ -167,10 +147,10 @@ const ParticlesBackground = () => {
         let particles = [];
 
         function init() {
-					canvas.width = window.innerWidth;
-					canvas.height = window.innerHeight;
-					particles = [];
-					const numParticles = calculateParticles();
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            const numParticles = calculateParticles();
             for (let i = 0; i < numParticles; i++) {
                 const radius = randomFloat(MIN_RADIUS, MAX_RADIUS);
                 let x = randomFloat(radius, canvas.width - radius);
