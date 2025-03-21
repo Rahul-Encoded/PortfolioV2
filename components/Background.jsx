@@ -109,7 +109,7 @@ const ParticlesBackground = () => {
                 c.shadowColor = this.color;
             
                 // Smooth glowing effect by oscillating opacity
-                const glowFactor = Math.sin(Date.now() * 0.005 + this.x * 0.02) * 0.5 + 0.5; // Pulsating glow
+                const glowFactor = Math.sin(Date.now() * 0.0005 + this.x * 0.02) * 0.5 + 0.5; // Pulsating glow
             
                 c.save();
                 c.globalAlpha = glowFactor; // Dynamic glow effect

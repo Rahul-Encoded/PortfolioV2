@@ -1,12 +1,29 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  animate,
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 
 const projects = [
   {
+    id: 5,
+    year: 2025,
+    title: "Connext (Full-Stack Next.js Social Media App)",
+    description:
+      "A full-stack Next.js application with user authentication (Clerk), ORM (Prisma), and a responsive UI built with shadcn/UI and Tailwind CSS. Deployed on Vercel.",
+    skills: ["Next.js", "TypeScript", "shadcn/UI", "Prisma", "Clerk"],
+    image: "/assets/connext.png",
+    Github: "https://github.com/Rahul-Encoded/Connext",
+  },
+	{
     id: 1,
     year: 2025,
     title: "Ola Rides PowerBI Dashboard",
@@ -15,6 +32,117 @@ const projects = [
     skills: ["Power BI", "Microsoft Excel", "Data Analysis"],
     image: "/assets/ola_rides_dashboard.png",
     Github: "https://github.com/Rahul-Encoded/HOLA",
+  },
+	{
+    id: 10,
+    year: 2024,
+    title: "Video Sharing Platform Backend",
+    description:
+      "Developed fully secured backend with authorization and authentication of a video sharing platform using MongoDB, Express.js, Node.js, Mongoose for ODM, and Cloudinary for media storage.",
+    skills: [
+      "MongoDB",
+      "Express.js",
+      "Node.js",
+      "Cloudinary",
+      "Postman",
+      "Mongoose",
+    ],
+    image: "/assets/video_sharing_platform.png",
+    Github: "https://github.com/Rahul-Encoded/BehindTheTube",
+  },
+	{
+    id: 8,
+    year: 2024,
+    title: "Automated Home System",
+    description:
+      "Created a remotely operable smart home system simulation using Raspberry Pi, Flask, Virtual Serial Port and Proteus Design Suite.",
+    skills: ["Raspberry Pi", "Flask", "Proteus Design Suite"],
+    image: "/assets/automated_home_system.png",
+    Github: "https://github.com/Rahul-Encoded/RooMote",
+  },
+	{
+    id: 4,
+    year: 2025,
+    title: "MonRch-Theme for VS Code",
+    description:
+      "Developing a modern, royal-themed VS Code color scheme with a devilish aesthetic, transparency effects, and genius-inspiring color combinations.",
+    skills: ["UI Design", "VS Code Theme Development", "JavaScript"],
+    image: "/assets/monrch_theme.png",
+    Github: "https://github.com/Rahul-Encoded/MonRchDarc",
+  },
+  {
+    id: 9,
+    year: 2024,
+    title: "Equity Research Tool (GenAI Project)",
+    description:
+      "An end-to-end LLM project for equity research analysis using Langchain, FAISS, and OpenAI embeddings for semantic search.",
+    skills: ["Langchain", "FAISS", "OpenAI API", "Streamlit"],
+    image: "/assets/equity_research_tool.png",
+    Github: "Not Hosted",
+  },
+	{
+    id: 7,
+    year: 2024,
+    title: "Keylogger Detection System using Machine Learning",
+    description:
+      "Developed a system to detect keyloggers using various ML models such as Logistic Regression, Random Forest, Gradient Boosting, LightGBM, and Auto-encoders.",
+    skills: [
+      "Machine Learning",
+      "Python",
+      "Scikit-learn",
+      "Pandas",
+      "Numpy",
+      "Seaborn",
+      "Matplotlib",
+    ],
+    image: "/assets/keylogger_detection.png",
+    Github: "Not Hosted",
+  },
+	{
+    id: 6,
+    year: 2025,
+    title: "Startup Landing Page (Freelance Gig)",
+    description:
+      "Designed and built a responsive landing page for a startup using React.js and Tailwind CSS, ensuring a modern and engaging user experience.",
+    skills: ["React.js", "Tailwind CSS"],
+    image: "/assets/startup_landing_page.png",
+    Github: "https://github.com/Rahul-Encoded/VividVoxels",
+  },
+	{
+    id: 61,
+    year: 2025,
+    title: "Book Management System",
+    description:
+      "Designed and built a Full Stack responsive Book Management System using  MongoDB, Express.js, Node.js, Mongoose for ODM, React.js and Tailwind CSS, ensuring a modern and engaging user experience.",
+    skills: [
+      "React.js",
+      "Tailwind CSS",
+      "MongoDB",
+      "Express.js",
+      "Node.js",
+      "Postman",
+      "Mongoose",
+    ],
+    image: "/assets/BookBore.png",
+    Github: "https://github.com/Rahul-Encoded/BookBore",
+  },
+  {
+    id: 11,
+    year: 2024,
+    title: "Solar Energy Potential Prediction Project",
+    description:
+      "Predicted solar energy potential using ML models like Random Forest, SGD, and Multi-layer Perceptron Regression. Achieved an R² score of 0.668.",
+    skills: [
+      "Machine Learning",
+      "Python",
+      "Scikit-learn",
+      "Pandas",
+      "Numpy",
+      "Seaborn",
+      "Matplotlib",
+    ],
+    image: "/assets/solar_energy_prediction.png",
+    Github: "Not Hosted",
   },
   {
     id: 2,
@@ -37,16 +165,6 @@ const projects = [
     Github: "https://github.com/Rahul-Encoded/KingKohli",
   },
   {
-    id: 4,
-    year: 2025,
-    title: "MonRch-Theme for VS Code",
-    description:
-      "Developing a modern, royal-themed VS Code color scheme with a devilish aesthetic, transparency effects, and genius-inspiring color combinations.",
-    skills: ["UI Design", "VS Code Theme Development", "JavaScript"],
-    image: "/assets/monrch_theme.png",
-    Github: "https://github.com/Rahul-Encoded/MonRchDarc",
-  },
-  {
     id: 41,
     year: 2025,
     title: "Google Drive (Frontend)",
@@ -54,117 +172,6 @@ const projects = [
       "A responsive reimagined recreation of Google Drive using React.js, Framer Motion, and Tailwind CSS. Features realistic drag-and-drop animations and an intuitive user interface.",
     skills: ["React.js", "Framer Motion", "Tailwind CSS"],
     image: "/assets/google_drive_clone.png",
-    Github: "Not Hosted",
-  },
-  {
-    id: 5,
-    year: 2025,
-    title: "Connext (Full-Stack Next.js App)",
-    description:
-      "A full-stack Next.js application with user authentication (Clerk), ORM (Prisma), and a responsive UI built with shadcn/UI and Tailwind CSS. Deployed on Vercel.",
-    skills: ["Next.js", "TypeScript", "shadcn/UI", "Prisma", "Clerk"],
-    image: "/assets/connext.png",
-    Github: "https://github.com/Rahul-Encoded/Connext",
-  },
-  {
-    id: 6,
-    year: 2025,
-    title: "Startup Landing Page (Freelance Gig)",
-    description:
-      "Designed and built a responsive landing page for a startup using React.js and Tailwind CSS, ensuring a modern and engaging user experience.",
-    skills: ["React.js", "Tailwind CSS"],
-    image: "/assets/startup_landing_page.png",
-    Github: "https://github.com/Rahul-Encoded/VividVoxels",
-  },
-  {
-    id: 61,
-    year: 2025,
-    title: "Book Management System",
-    description:
-      "Designed and built a Full Stack responsive Book Management System using  MongoDB, Express.js, Node.js, Mongoose for ODM, React.js and Tailwind CSS, ensuring a modern and engaging user experience.",
-    skills: [
-      "React.js",
-      "Tailwind CSS",
-      "MongoDB",
-      "Express.js",
-      "Node.js",
-      "Postman",
-      "Mongoose",
-    ],
-    image: "/assets/BookBore.png",
-    Github: "https://github.com/Rahul-Encoded/BookBore",
-  },
-  {
-    id: 7,
-    year: 2024,
-    title: "Keylogger Detection System using Machine Learning",
-    description:
-      "Developed a system to detect keyloggers using various ML models such as Logistic Regression, Random Forest, Gradient Boosting, LightGBM, and Auto-encoders.",
-    skills: [
-      "Machine Learning",
-      "Python",
-      "Scikit-learn",
-      "Pandas",
-      "Numpy",
-      "Seaborn",
-      "Matplotlib",
-    ],
-    image: "/assets/keylogger_detection.png",
-    Github: "Not Hosted",
-  },
-  {
-    id: 8,
-    year: 2024,
-    title: "Automated Home System",
-    description:
-      "Created a remotely operable smart home system simulation using Raspberry Pi, Flask, Virtual Serial Port and Proteus Design Suite.",
-    skills: ["Raspberry Pi", "Flask", "Proteus Design Suite"],
-    image: "/assets/automated_home_system.png",
-    Github: "https://github.com/Rahul-Encoded/RooMote",
-  },
-  {
-    id: 9,
-    year: 2024,
-    title: "Equity Research Tool (GenAI Project)",
-    description:
-      "An end-to-end LLM project for equity research analysis using Langchain, FAISS, and OpenAI embeddings for semantic search.",
-    skills: ["Langchain", "FAISS", "OpenAI API", "Streamlit"],
-    image: "/assets/equity_research_tool.png",
-    Github: "Not Hosted",
-  },
-  {
-    id: 10,
-    year: 2024,
-    title: "Video Sharing Platform Backend",
-    description:
-      "Developed fully secured backend with authorization and authentication of a video sharing platform using MongoDB, Express.js, Node.js, Mongoose for ODM, and Cloudinary for media storage.",
-    skills: [
-      "MongoDB",
-      "Express.js",
-      "Node.js",
-      "Cloudinary",
-      "Postman",
-      "Mongoose",
-    ],
-    image: "/assets/video_sharing_platform.png",
-    Github: "https://github.com/Rahul-Encoded/BehindTheTube",
-  },
-  {
-    id: 11,
-    year: 2024,
-    title: "Solar Energy Potential Prediction Project",
-    description:
-      "Predicted solar energy potential using ML models like Random Forest, SGD, and Multi-layer Perceptron Regression. Achieved an R² score of 0.668.",
-    skills: [
-      "Machine Learning",
-      "Python",
-      "Scikit-learn",
-      "Pandas",
-      "Numpy",
-      "Seaborn",
-      "Matplotlib",
-    ],
-    image: "/assets/solar_energy_prediction.png",
     Github: "Not Hosted",
   },
   {
@@ -198,7 +205,7 @@ const projects = [
   {
     id: 14,
     year: 2024,
-    title: "AirBNB Clone",
+    title: "AirBNB UI Clone",
     description:
       "Recreated the Airbnb UI with property listings, booking system, and user reviews, ensuring full responsiveness across devices.",
     skills: ["HTML", "CSS", "JavaScript", "UI/UX Design"],
@@ -208,26 +215,47 @@ const projects = [
 ];
 
 const COLORS = [
-  "#FF6B6B",
-  "#FFD93D",
-  "#6BCB77",
-  "#4D96FF",
-  "#FF6BA3",
-  "#8e24aa",
+  "#FF6B6B", // 🔴 Soft Red (Energetic, Alert, Passionate)
+  "#9B870C", // 🏆 Olive Gold (Elegant, Prestige, High-Value)
+  "#6BCB77", // 🟢 Fresh Green (Natural, Growth-Oriented, Calming)
+  "#4D96FF", // 🔵 Vibrant Blue (Trustworthy, Cool, Professional)
+  "#FF6BA3", // 🌸 Pinkish Magenta (Playful, Creative, Youthful)
+  "#8e24aa", // 🟣 Deep Purple (Royal, Mysterious, Luxurious)
 ];
 
+
 const HorizontalScrollCarousel = () => {
+  const color = useMotionValue(COLORS[0]);
+
+  useEffect(() => {
+    animate(color, COLORS, {
+      ease: "easeInOut",
+      duration: 12, // Increased animation time for smooth transitions
+      repeat: Infinity,
+      repeatType: "mirror",
+    });
+  }, []);
+
+  const border = useMotionTemplate`1px solid ${color}`;
+  const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
+
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-77%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[200vh] bg-primary-900 backdrop-blur">
+    <section
+      ref={targetRef}
+      className="relative h-[400vh] bg-primary-900 backdrop-blur"
+    >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-6 bg-primary-600 backdrop-blur-3xl">
+        <motion.div
+          style={{ x }}
+          className="flex gap-6 bg-primary-600 backdrop-blur-3xl"
+        >
           {projects.map((project) => (
             <div
               key={project.id}
@@ -237,7 +265,7 @@ const HorizontalScrollCarousel = () => {
                 src={project.image}
                 alt={project.title}
                 width={500}
-                height={400}
+                height={450}
                 unoptimized={true}
                 className="w-full h-52 object-cover rounded-md mb-4"
               />
@@ -252,11 +280,12 @@ const HorizontalScrollCarousel = () => {
                     key={index}
                     className="px-2 py-1 rounded text-sm font-medium"
                     style={{
-                      backgroundColor: COLORS[index % COLORS.length],
-                      color: "white",
+                      border,
+                      boxShadow,
+                      color: COLORS[index % COLORS.length],
                     }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     {skill}
                   </motion.span>
@@ -286,7 +315,7 @@ const HorizontalScrollCarousel = () => {
 function Portfolio() {
   return (
     <section className="p-6 bg-secondary-900 text-primary/70 backdrop-blur">
-      <h2 className="text-3xl font-bold text-center mb-8">Projects</h2>
+      <h2 className="text-3xl font-bold text-center mb-0">Projects</h2>
       <HorizontalScrollCarousel />
     </section>
   );

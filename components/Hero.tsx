@@ -11,13 +11,14 @@ import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
 
 const COLORS = [
-  "#FF6B6B",
-  "#FFD93D",
-  "#6BCB77",
-  "#4D96FF",
-  "#FF6BA3",
-  "#8e24aa",
+  "#FF6B6B", // 🔴 Soft Red (Energetic, Alert, Passionate)
+  "#FFD93D", // 🟡 Bright Yellow (Warm, Attention-Grabbing, Optimistic)
+  "#6BCB77", // 🟢 Fresh Green (Natural, Growth-Oriented, Calming)
+  "#4D96FF", // 🔵 Vibrant Blue (Trustworthy, Cool, Professional)
+  "#FF6BA3", // 🌸 Pinkish Magenta (Playful, Creative, Youthful)
+  "#8e24aa", // 🟣 Deep Purple (Royal, Mysterious, Luxurious)
 ];
+
 
 const words = [
   "UI/UX Design",
@@ -126,7 +127,8 @@ function Hero() {
         <div className="flex flex-col items-center justify-center">
           <p className="my-4 max-w-lg text-primary/70 select-none font-mono text-3xl font-bold">
             An Engineer specializing in
-            <motion.div
+            <br />
+            <motion.span
               className="select-none font-mono text-primary/60 text-3xl font-bold mt-2"
               animate={{
                 opacity: isFadingOut ? 0 : 1,
@@ -135,7 +137,7 @@ function Hero() {
               transition={{ duration: 0.6, ease: "easeInOut" }}
             >
               {displayText}
-            </motion.div>
+            </motion.span>
           </p>
         </div>
 
