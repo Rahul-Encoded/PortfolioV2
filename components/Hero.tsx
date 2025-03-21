@@ -43,7 +43,6 @@ function Hero() {
     });
   }, []);
 
-  const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, transparent 50%, ${color})`;
   const border = useMotionTemplate`1px solid ${color}`;
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
 
@@ -105,9 +104,8 @@ function Hero() {
   }, [currentIndex]);
 
   return (
-    <motion.section
-      style={{ backgroundImage, backdropFilter: "blur(10px)" }}
-      className="relative flex min-h-screen items-center justify-center px-6 py-24"
+    <section
+      className="relative flex min-h-screen items-center justify-center px-6 py-24 backdrop-blur"
     >
       <div className="border border-primary/20 backdrop-blur-3xl rounded-3xl p-12 z-10 flex flex-col items-center text-center hover:shadow-lg hover:shadow-primary/20">
         <span className="mb-2 inline-block rounded-full bg-gray-600/50 px-4 py-2 text-sm">
@@ -151,7 +149,7 @@ function Hero() {
           <FiArrowRight className="text-lg"></FiArrowRight>
         </motion.button>
       </div>
-    </motion.section>
+    </section>
   );
 }
 

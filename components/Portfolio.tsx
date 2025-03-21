@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -23,7 +23,7 @@ const projects = [
     image: "/assets/connext.png",
     Github: "https://github.com/Rahul-Encoded/Connext",
   },
-	{
+  {
     id: 1,
     year: 2025,
     title: "Ola Rides PowerBI Dashboard",
@@ -33,7 +33,7 @@ const projects = [
     image: "/assets/ola_rides_dashboard.png",
     Github: "https://github.com/Rahul-Encoded/HOLA",
   },
-	{
+  {
     id: 10,
     year: 2024,
     title: "Video Sharing Platform Backend",
@@ -50,7 +50,7 @@ const projects = [
     image: "/assets/video_sharing_platform.png",
     Github: "https://github.com/Rahul-Encoded/BehindTheTube",
   },
-	{
+  {
     id: 8,
     year: 2024,
     title: "Automated Home System",
@@ -60,7 +60,7 @@ const projects = [
     image: "/assets/automated_home_system.png",
     Github: "https://github.com/Rahul-Encoded/RooMote",
   },
-	{
+  {
     id: 4,
     year: 2025,
     title: "MonRch-Theme for VS Code",
@@ -80,7 +80,7 @@ const projects = [
     image: "/assets/equity_research_tool.png",
     Github: "Not Hosted",
   },
-	{
+  {
     id: 7,
     year: 2024,
     title: "Keylogger Detection System using Machine Learning",
@@ -98,7 +98,7 @@ const projects = [
     image: "/assets/keylogger_detection.png",
     Github: "Not Hosted",
   },
-	{
+  {
     id: 6,
     year: 2025,
     title: "Startup Landing Page (Freelance Gig)",
@@ -108,7 +108,7 @@ const projects = [
     image: "/assets/startup_landing_page.png",
     Github: "https://github.com/Rahul-Encoded/VividVoxels",
   },
-	{
+  {
     id: 61,
     year: 2025,
     title: "Book Management System",
@@ -223,8 +223,15 @@ const COLORS = [
   "#8e24aa", // 🟣 Deep Purple (Royal, Mysterious, Luxurious)
 ];
 
+const projectCategories = {
+  "Development": ["Next.js", "React.js", "MongoDB", "Express.js", "Node.js", "HTML", "CSS", "API Integration", "JavaScript", , "UI/UX Design"],
+  "Data Analysis": ["Power BI", "Data Analysis", "Data Visualization", "Microsoft Excel", "Numpy", "Pandas", "Seaborn", "Matplotlib"],
+  "Machine Learning": ["Machine Learning", "Scikit-learn", "Numpy", "Pandas", "Seaborn", "Matplotlib"],
+  "Generative AI": ["Langchain", "FAISS", "OpenAI API"],
+  "IoT": ["Raspberry Pi", "Proteus Design Suite"],
+};
 
-const HorizontalScrollCarousel = () => {
+const HorizontalScrollCarousel = ({ selectedType }: { selectedType: keyof typeof projectCategories | "All" }) => {
   const color = useMotionValue(COLORS[0]);
 
   useEffect(() => {
@@ -246,6 +253,11 @@ const HorizontalScrollCarousel = () => {
 
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-77%"]);
 
+	// **Filter Projects Based on Selected Type**
+  const filteredProjects = projects.filter((project) =>
+    selectedType === "All" || project.skills.some((skill) => projectCategories[selectedType as keyof typeof projectCategories]?.includes(skill))
+  );
+
   return (
     <section
       ref={targetRef}
@@ -256,7 +268,7 @@ const HorizontalScrollCarousel = () => {
           style={{ x }}
           className="flex gap-6 bg-primary-600 backdrop-blur-3xl"
         >
-          {projects.map((project) => (
+          {filteredProjects.map((project) => (
             <div
               key={project.id}
               className="border border-primary/20 bg-primary/10 backdrop-blur-3xl rounded-lg shadow-lg p-5 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-transform w-[350px] lg:w-[400px]"
@@ -270,8 +282,8 @@ const HorizontalScrollCarousel = () => {
                 className="w-full h-52 object-cover rounded-md mb-4"
               />
               <h3 className="text-xl font-semibold">{project.title}</h3>
-              <p className="text-gray-400 text-sm mb-2">{project.year}</p>
-              <p className="text-gray-300 mb-3">{project.description}</p>
+              <p className="text-primary-400 text-sm mb-2">{project.year}</p>
+              <p className="text-primary-300 mb-3">{project.description}</p>
 
               {/* Multicolored Skills Section */}
               <div className="flex flex-wrap gap-2 mb-4">
@@ -293,7 +305,7 @@ const HorizontalScrollCarousel = () => {
               </div>
 
               {project.Github === "Not Hosted" ? (
-                <span className="text-gray-500 italic">Not Hosted</span>
+                <span className="text-primary-500 italic">Not Hosted</span>
               ) : (
                 <Link
                   href={project.Github}
@@ -313,12 +325,45 @@ const HorizontalScrollCarousel = () => {
 };
 
 function Portfolio() {
+  const [selectedType, setSelectedType] = useState<
+    "Data Analysis" | "Machine Learning" | "Development" | "Generative AI" | "IoT" | "All"
+  >("All");
+
+  const types: Array<typeof selectedType> = [
+    "All",
+    "Development",
+    "Data Analysis",
+    "Machine Learning",
+    "Generative AI",
+    "IoT",
+  ];
+
   return (
     <section className="p-6 bg-secondary-900 text-primary/70 backdrop-blur">
-      <h2 className="text-3xl font-bold text-center mb-0">Projects</h2>
-      <HorizontalScrollCarousel />
+      <h2 className="text-3xl font-bold text-center mb-4">Projects</h2>
+
+      {/* **Filter Buttons** */}
+      <div className="flex justify-center gap-3 mb-6">
+        {types.map((type) => (
+          <button
+            key={type}
+            className={`px-4 py-2 rounded-lg transition duration-300 ease-in-out backdrop-blur-3xl shadow-lg 
+              ${
+                selectedType === type
+                  ? "bg-primary text-secondary scale-105"
+                  : "bg-secondary/80 text-secondary-300 hover:bg-secondary-700 hover:scale-110"
+              }`}
+            onClick={() => setSelectedType(type)}
+          >
+            {type}
+          </button>
+        ))}
+      </div>
+
+      <HorizontalScrollCarousel selectedType={selectedType} />
     </section>
   );
 }
 
 export default Portfolio;
+
