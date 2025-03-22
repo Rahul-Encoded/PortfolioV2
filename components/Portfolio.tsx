@@ -224,14 +224,46 @@ const COLORS = [
 ];
 
 const projectCategories = {
-  "Development": ["Next.js", "React.js", "MongoDB", "Express.js", "Node.js", "HTML", "CSS", "API Integration", "JavaScript", , "UI/UX Design"],
-  "Data Analysis": ["Power BI", "Data Analysis", "Data Visualization", "Microsoft Excel", "Numpy", "Pandas", "Seaborn", "Matplotlib"],
-  "Machine Learning": ["Machine Learning", "Scikit-learn", "Numpy", "Pandas", "Seaborn", "Matplotlib"],
+  Development: [
+    "Next.js",
+    "React.js",
+    "MongoDB",
+    "Express.js",
+    "Node.js",
+    "HTML",
+    "CSS",
+    "API Integration",
+    "JavaScript",
+    ,
+    "UI/UX Design",
+  ],
+  "Data Analysis": [
+    "Power BI",
+    "Data Analysis",
+    "Data Visualization",
+    "Microsoft Excel",
+    "Numpy",
+    "Pandas",
+    "Seaborn",
+    "Matplotlib",
+  ],
+  "Machine Learning": [
+    "Machine Learning",
+    "Scikit-learn",
+    "Numpy",
+    "Pandas",
+    "Seaborn",
+    "Matplotlib",
+  ],
   "Generative AI": ["Langchain", "FAISS", "OpenAI API"],
-  "IoT": ["Raspberry Pi", "Proteus Design Suite"],
+  IoT: ["Raspberry Pi", "Proteus Design Suite"],
 };
 
-const HorizontalScrollCarousel = ({ selectedType }: { selectedType: keyof typeof projectCategories | "All" }) => {
+const HorizontalScrollCarousel = ({
+  selectedType,
+}: {
+  selectedType: keyof typeof projectCategories | "All";
+}) => {
   const color = useMotionValue(COLORS[0]);
 
   useEffect(() => {
@@ -253,9 +285,15 @@ const HorizontalScrollCarousel = ({ selectedType }: { selectedType: keyof typeof
 
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-77%"]);
 
-	// **Filter Projects Based on Selected Type**
-  const filteredProjects = projects.filter((project) =>
-    selectedType === "All" || project.skills.some((skill) => projectCategories[selectedType as keyof typeof projectCategories]?.includes(skill))
+  // **Filter Projects Based on Selected Type**
+  const filteredProjects = projects.filter(
+    (project) =>
+      selectedType === "All" ||
+      project.skills.some((skill) =>
+        projectCategories[
+          selectedType as keyof typeof projectCategories
+        ]?.includes(skill)
+      )
   );
 
   return (
@@ -326,7 +364,12 @@ const HorizontalScrollCarousel = ({ selectedType }: { selectedType: keyof typeof
 
 function Portfolio() {
   const [selectedType, setSelectedType] = useState<
-    "Data Analysis" | "Machine Learning" | "Development" | "Generative AI" | "IoT" | "All"
+    | "Data Analysis"
+    | "Machine Learning"
+    | "Development"
+    | "Generative AI"
+    | "IoT"
+    | "All"
   >("All");
 
   const types: Array<typeof selectedType> = [
@@ -339,20 +382,20 @@ function Portfolio() {
   ];
 
   return (
-    <section className="p-6 bg-secondary-900 text-primary/70 backdrop-blur">
+    <section id="portfolio" className="p-6 bg-secondary-900 text-primary/70 backdrop-blur">
       <h2 className="text-3xl font-bold text-center mb-4">Projects</h2>
 
       {/* **Filter Buttons** */}
-      <div className="flex justify-center gap-3 mb-6">
+      <div className="flex flex-wrap justify-center gap-3 mb-6 px-4 sm:px-6 md:px-8">
         {types.map((type) => (
           <button
             key={type}
-            className={`px-4 py-2 rounded-lg transition duration-300 ease-in-out backdrop-blur-3xl shadow-lg 
-              ${
-                selectedType === type
-                  ? "bg-primary text-secondary scale-105"
-                  : "bg-secondary/80 text-secondary-300 hover:bg-secondary-700 hover:scale-110"
-              }`}
+            className={`px-4 py-2 rounded-lg transition duration-300 ease-in-out backdrop-blur-3xl shadow-lg cursor-pointer 
+        ${
+          selectedType === type
+            ? "bg-primary text-secondary scale-105"
+            : "bg-secondary/80 text-secondary-300 hover:bg-secondary-700 hover:scale-110"
+        }`}
             onClick={() => setSelectedType(type)}
           >
             {type}
@@ -366,4 +409,3 @@ function Portfolio() {
 }
 
 export default Portfolio;
-

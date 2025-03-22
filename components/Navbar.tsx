@@ -24,7 +24,7 @@ function Navbar() {
   };
 
   return (
-    <div className="z-50 fixed flex justify-center w-full text-primary/20 font-bold">
+    <div className="z-50 fixed flex justify-center w-full text-primary/70 font-bold">
       {/* ✅ Desktop Navbar */}
       <div className="border border-primary/20 mt-8 backdrop-blur-3xl rounded-3xl hidden md:flex items-center justify-center p-2 max-w-[500px] mx-auto hover:shadow-lg hover:shadow-primary/20">
         <ul className="flex flex-row p-2 space-x-8">
@@ -32,7 +32,7 @@ function Navbar() {
             <li key={index}>
               <Link
                 href={link.path}
-                className="transform hover:text-primary/50 transition-all duration-300 ease-in-out"
+                className="transform hover:text-primary/20 transition-all duration-300 ease-in-out"
               >
                 {link.title}
               </Link>

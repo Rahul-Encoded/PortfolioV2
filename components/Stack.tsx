@@ -118,7 +118,7 @@ const Direction = ({ prop }: { prop: number }) => {
 
 function Stack() {
   return (
-    <div className="relative grid-cols-3 py-12 justify-center items-center backdrop-blur">
+    <div id="stack" className="relative grid-cols-3 py-12 justify-center items-center backdrop-blur">
       <h2 className="text-center text-2xl font-bold mb-6 text-primary/70">
         My Skills
       </h2>
