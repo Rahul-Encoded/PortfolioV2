@@ -4,17 +4,19 @@ import React, { useEffect, useRef } from "react";
 
 // Define cursor colors
 const CURSOR_COLORS = [
-  "#FF6B6B", // 🔴 Soft Red (Energetic, Alert, Passionate)
-  "#FFD93D", // 🟡 Bright Yellow (Warm, Attention-Grabbing, Optimistic)
-  "#6BCB77", // 🟢 Fresh Green (Natural, Growth-Oriented, Calming)
-  "#4D96FF", // 🔵 Vibrant Blue (Trustworthy, Cool, Professional)
-  "#FF6BA3", // 🌸 Pinkish Magenta (Playful, Creative, Youthful)
-  "#8e24aa", // 🟣 Deep Purple (Royal, Mysterious, Luxurious)
+  "#FF6B6B", // 🔴 Soft Red
+  "#FFD93D", // 🟡 Bright Yellow
+  "#6BCB77", // 🟢 Fresh Green
+  "#4D96FF", // 🔵 Vibrant Blue
+  "#FF6BA3", // 🌸 Pinkish Magenta
+  "#8e24aa", // 🟣 Deep Purple
 ];
 
 const CustomCursor = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const mouseRef = useRef({ x: -100, y: -100 }); // Start off-screen
+  const particlesRef = useRef<Particle[]>([]); // Store particles persistently
+
   class Particle {
     x: number;
     y: number;
@@ -24,18 +26,17 @@ const CustomCursor = () => {
     targetY: number;
     speed: number;
 
-    constructor(canvas: HTMLCanvasElement, c: CanvasRenderingContext2D | null) {
-      this.x = Math.random() * (canvas?.width || 0);
-      this.y = Math.random() * (canvas?.height || 0);
+    constructor(canvas: HTMLCanvasElement) {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
       this.radius = Math.random() * 10 + 10;
       this.color = CURSOR_COLORS[Math.floor(Math.random() * CURSOR_COLORS.length)];
       this.targetX = this.x;
       this.targetY = this.y;
-      this.speed = Math.random() * 0.1 + 0.05; // Smooth transition speed
+      this.speed = Math.random() * 0.1 + 0.05;
     }
 
-    draw(c: CanvasRenderingContext2D | null) {
-      if (!c) return;
+    draw(c: CanvasRenderingContext2D) {
       c.beginPath();
       c.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
       c.fillStyle = this.color;
@@ -47,7 +48,7 @@ const CustomCursor = () => {
       c.fill();
     }
 
-    update(mouseRef: React.RefObject<{ x: number; y: number }>, c: CanvasRenderingContext2D | null) {
+    update(mouseRef: React.RefObject<{ x: number; y: number }>, c: CanvasRenderingContext2D) {
       this.targetX = mouseRef.current.x + Math.random() * 30 - 15;
       this.targetY = mouseRef.current.y + Math.random() * 30 - 15;
 
@@ -59,42 +60,47 @@ const CustomCursor = () => {
     }
   }
 
-  let particles: Particle[] = [];
-
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const c = canvas.getContext("2d");
     if (!c) return;
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    // Initialize only a few particles (3-5)
-    particles = Array.from({ length: 7 }, () => new Particle(canvas, c));
+    // Initialize particles only once
+    if (particlesRef.current.length === 0) {
+      particlesRef.current = Array.from({ length: 7 }, () => new Particle(canvas));
+    }
 
     const animate = () => {
       requestAnimationFrame(animate);
       c.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((particle) => particle.update(mouseRef, c));
+      particlesRef.current.forEach((particle) => particle.update(mouseRef, c));
     };
 
     // Update mouse position
-    window.addEventListener("mousemove", (e) => {
+    const updateMousePosition = (e: MouseEvent) => {
       mouseRef.current.x = e.clientX;
       mouseRef.current.y = e.clientY;
-    });
+    };
 
-    window.addEventListener("resize", () => {
+    const handleResize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-    });
+    };
+
+    window.addEventListener("mousemove", updateMousePosition);
+    window.addEventListener("resize", handleResize);
 
     animate();
-  }, []);
 
-  // Ensure particles and animation logic are handled in the first useEffect
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return <canvas ref={canvasRef} className="fixed inset-0 w-full h-full pointer-events-none z-2" />;
 };

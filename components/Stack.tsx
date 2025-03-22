@@ -72,7 +72,7 @@ const Direction = ({ prop }: { prop: number }) => {
       repeat: Infinity,
       repeatType: "mirror",
     });
-  }, []);
+  }, [color]);
 
   const border = useMotionTemplate`1px solid ${color}`;
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;

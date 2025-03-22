@@ -1,6 +1,6 @@
 "use client";
 
-import { useInView, motion, animate } from "framer-motion";
+import { useInView, motion } from "framer-motion";
 import React from "react";
 
 const metrics = [

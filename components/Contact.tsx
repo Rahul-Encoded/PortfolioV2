@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
       repeat: Infinity,
       repeatType: "mirror",
     });
-  }, []);
+  }, [color]);
 
   const border = useMotionTemplate`1px solid ${color}`;
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
@@ -86,7 +86,7 @@ const Contact: React.FC = () => {
             Get In Touch
           </h2>
           <p className="text-lg text-secondary-600 dark:text-secondary-300">
-            Let's work together!
+            Let&apos;s work together!
           </p>
           <div className="w-20 h-1 bg-primary mx-auto mt-2"></div>
         </motion.div>

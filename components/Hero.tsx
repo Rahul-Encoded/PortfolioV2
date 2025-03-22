@@ -19,7 +19,6 @@ const COLORS = [
   "#8e24aa", // 🟣 Deep Purple (Royal, Mysterious, Luxurious)
 ];
 
-
 const words = [
   "UI/UX Design",
   "Full-Stack Development",
@@ -37,10 +36,11 @@ function Hero() {
   useEffect(() => {
     animate(color, COLORS, {
       ease: "easeInOut",
-      duration: 12, // Increased animation time for smooth transitions
+      duration: 12,
       repeat: Infinity,
       repeatType: "mirror",
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const border = useMotionTemplate`1px solid ${color}`;
@@ -58,11 +58,11 @@ function Hero() {
       setIsFadingOut(true); // Smooth fade-out before switching words
 
       setTimeout(() => {
-        let originalText = words[currentIndex];
-        let textLength = originalText.length;
+        const originalText = words[currentIndex];
+        const textLength = originalText.length;
 
         // Initial glitch: Random symbols
-        let glitchText = Array.from(
+        const glitchText = Array.from(
           { length: textLength },
           () => symbols[Math.floor(Math.random() * symbols.length)]
         ).join("");
@@ -104,7 +104,8 @@ function Hero() {
   }, [currentIndex]);
 
   return (
-    <section id="about"
+    <section
+      id="about"
       className="relative flex min-h-screen items-center justify-center px-6 py-24 backdrop-blur"
     >
       <div className="border border-primary/20 backdrop-blur-3xl rounded-3xl p-12 z-10 flex flex-col items-center text-center hover:shadow-lg hover:shadow-primary/20">
@@ -146,7 +147,7 @@ function Hero() {
           className="cursor-pointer mt-6 flex w-fit text-primary/40 items-center gap-2 rounded-full px-5 py-3"
         >
           Download CV
-          <FiArrowRight className="text-lg"></FiArrowRight>
+          <FiArrowRight className="text-lg" />
         </motion.button>
       </div>
     </section>
