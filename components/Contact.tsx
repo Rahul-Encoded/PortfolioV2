@@ -220,7 +220,7 @@ const Contact: React.FC = () => {
               )}
               {status === "success" && (
                 <p className="text-green-500 text-sm mt-2">
-                  Message sent successfully!
+                  Message sent successfully!✅
                 </p>
               )}
             </form>
