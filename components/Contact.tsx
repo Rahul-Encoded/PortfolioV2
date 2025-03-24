@@ -82,11 +82,11 @@ const Contact: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-secondary-800 dark:text-primary/80 mb-3">
+          <h2 className="text-6xl font-bold text-primary/80 mb-3">
             Get In Touch
           </h2>
-          <p className="text-lg text-secondary-600 dark:text-secondary-300">
-            Let&apos;s work together!
+          <p className="text-lg text-purple-500">
+            Let&apos;s cook together!
           </p>
           <div className="w-20 h-1 bg-primary mx-auto mt-2"></div>
         </motion.div>
@@ -101,7 +101,7 @@ const Contact: React.FC = () => {
             viewport={{ once: true }}
             className="glassmorphism p-8 rounded-2xl shadow-lg backdrop-blur-xl hover:shadow-lg hover:shadow-primary/20"
           >
-            <h3 className="text-2xl font-semibold text-secondary-800 dark:text-primary/80 mb-6">
+            <h3 className="text-2xl font-semibold text-primary/70 mb-6">
               Contact Information
             </h3>
             <div className="space-y-6">
@@ -122,10 +122,10 @@ const Contact: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-secondary-800 dark:text-primary/80">
+                  <h4 className="font-semibold text-primary/70">
                     Email
                   </h4>
-                  <p className="text-secondary-600 dark:text-secondary-400">
+                  <p className="text-secondary-400">
                     rahulm03@outlook.com
                   </p>
                 </div>
@@ -153,10 +153,10 @@ const Contact: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-secondary-800 dark:text-primary/80">
+                  <h4 className="font-semibold text-primary/70">
                     Location
                   </h4>
-                  <p className="text-secondary-600 dark:text-secondary-400">
+                  <p className="text-secondary-400">
                     Jamnagar, Gujarat, India
                   </p>
                 </div>
@@ -181,7 +181,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your Name"
-                  className="w-full p-3 border border-secondary-400 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none dark:bg-secondary-800 dark:border-secondary-700 dark:text-primary"
+                  className="w-full p-3 border border-secondary-700 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none bg-secondary-800 text-primary"
                 />
                 <input
                   name="email"
@@ -190,7 +190,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your Email"
-                  className="w-full p-3 border border-secondary-400 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none dark:bg-secondary-800 dark:border-secondary-700 dark:text-primary"
+                  className="w-full p-3 border border-secondary-700 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none bg-secondary-800 text-primary"
                 />
                 <textarea
                   name="message"
@@ -198,7 +198,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your Message"
-                  className="w-full p-3 border border-secondary-400 rounded-lg resize-none focus:ring-2 focus:ring-primary focus:outline-none dark:bg-secondary-800 dark:border-secondary-700 dark:text-primary"
+                  className="w-full p-3 border border-secondary-700 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none bg-secondary-800 text-primary"
                   rows={5}
                 />
               </div>
