@@ -15,23 +15,26 @@ import Lenis from "lenis";
 export default function Home() {
   useEffect(() => {
     const lenis = new Lenis();
-    function raf(time: any){
+
+    function raf(time: number) {  // ✅ Correct Type
       lenis.raf(time);
-      requestAnimationFrame(raf)
+      requestAnimationFrame(raf);
     }
+
     requestAnimationFrame(raf);
-  }, [])
+  }, []);
+
   return (
     <>
-      <Background></Background>
-      <Navbar></Navbar>
-      <Hero></Hero>
-      <Stack></Stack>
-      <Portfolio></Portfolio>
-      <KeyMetrics></KeyMetrics>
-      <Future></Future>
-      <Contact></Contact>
-      <Footer></Footer>
+      <Background />
+      <Navbar />
+      <Hero />
+      <Stack />
+      <Portfolio />
+      <KeyMetrics />
+      <Future />
+      <Contact />
+      <Footer />
     </>
   );
 }
