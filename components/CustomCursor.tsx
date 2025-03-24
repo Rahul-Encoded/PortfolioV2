@@ -30,7 +30,7 @@ function CustomCursor() {
         x: smoothX,
         y: smoothY,
       }}
-      className="z-2 h-[32px] w-[32px] rounded-full fixed top-0 left-0 pointer-events-none mix-blend-difference bg-white"
+      className="z-2 h-[35px] w-[35px] rounded-full fixed top-0 left-0 pointer-events-none mix-blend-difference bg-white"
     ></motion.div>
   );
 }
