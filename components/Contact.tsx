@@ -83,7 +83,7 @@ const Contact: React.FC = () => {
           className="text-center mb-12"
         >
           <h2 className="text-6xl font-bold text-primary/80 mb-3">
-            Get In Touch
+            GET IN TOUCH
           </h2>
           <p className="text-lg text-purple-500">
             Let&apos;s cook together!

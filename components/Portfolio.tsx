@@ -319,7 +319,7 @@ const HorizontalScrollCarousel = ({
                 unoptimized={true}
                 className="w-full h-52 object-cover rounded-md mb-4"
               />
-              <h3 className="text-xl text-purple-500 font-semibold">{project.title}</h3>
+              <h3 className="text-2xl text-purple-500 font-semibold">{project.title}</h3>
               <p className="text-primary/30 text-sm mb-2">{project.year}</p>
               <p className="text-primary/70 mb-3">{project.description}</p>
 
@@ -383,7 +383,7 @@ function Portfolio() {
 
   return (
     <section id="portfolio" className="p-6 bg-secondary-900 text-primary/80 backdrop-blur">
-      <h2 className="text-6xl font-bold text-center mb-4">Projects</h2>
+      <h2 className="text-6xl font-bold text-center mb-4">PROJECTS</h2>
 
       {/* **Filter Buttons** */}
       <div className="flex flex-wrap justify-center gap-3 mb-6 px-4 sm:px-6 md:px-8">
