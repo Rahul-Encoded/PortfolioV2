@@ -316,7 +316,6 @@ const HorizontalScrollCarousel = ({
                 alt={project.title}
                 width={500}
                 height={450}
-                unoptimized={true}
                 className="w-full h-52 object-cover rounded-md mb-4"
               />
               <h3 className="text-2xl text-purple-500 font-semibold">
