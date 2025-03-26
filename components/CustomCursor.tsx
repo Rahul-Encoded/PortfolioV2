@@ -25,7 +25,7 @@ function CustomCursor() {
     window.addEventListener("mousemove", mouseMove);
     
     // Select footer elements and Next.js Link components
-    const interactiveElements = document.querySelectorAll("footer, [href], h2");
+    const interactiveElements = document.querySelectorAll("footer, h2, [href]");
     interactiveElements.forEach(el => {
       el.addEventListener("mouseenter", handleMouseEnter);
       el.addEventListener("mouseleave", handleMouseLeave);

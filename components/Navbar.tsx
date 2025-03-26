@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import ModeToggle from "./ModeToggle";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { motion } from "framer-motion";
 
 const navLinks = [
   { title: "About", path: "#about", alt: "😎Me" },
@@ -29,10 +30,15 @@ function Navbar() {
       <div className="border border-primary/20 mt-8 backdrop-blur-3xl rounded-3xl hidden md:flex items-center justify-center p-2 max-w-[500px] mx-auto hover:shadow-lg hover:shadow-primary/20">
         <ul className="flex flex-row p-2 space-x-8">
           {navLinks.map((link, index) => (
-            <li key={index}>
+            <motion.li
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95, rotate: "3deg" }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+            >
               <Link
                 href={link.path}
-                className="transform hover:text-primary/20 hover:scale-150 transition-all duration-300 ease-in-out"
+                className="transform hover:text-primary/20 transition-all duration-300 ease-in-out"
               >
                 <p className="group relative">
                   <span className="group-hover:opacity-0 transition-opacity duration-300">
@@ -43,7 +49,7 @@ function Navbar() {
                   </span>
                 </p>
               </Link>
-            </li>
+            </motion.li>
           ))}
         </ul>
         <div className="mx-4">

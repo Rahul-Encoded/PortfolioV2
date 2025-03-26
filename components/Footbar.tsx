@@ -6,6 +6,7 @@ import {
   AiFillInstagram,
   AiFillRedditCircle,
 } from "react-icons/ai";
+import { motion } from "framer-motion";
 
 const socialLinks = [
   {
@@ -35,7 +36,11 @@ export const Footer = () => {
   return (
     <div className="backdrop-blur w-full">
       <footer className="py-8 max-w-[1200px] mx-auto px-4">
-        <div className="mt-12 flex sm:justify-between justify-center items-center gap-10 max-sm:flex-col">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="mt-12 flex sm:justify-between justify-center items-center gap-10 max-sm:flex-col"
+        >
           <p
             className="text-primary/20 group relative"
             data-hover-text="Thanks for stopping by!"
@@ -50,7 +55,12 @@ export const Footer = () => {
 
           <ul className="flex gap-5 flex-wrap">
             {socialLinks.map(({ href, Icon, label }) => (
-              <li key={label}>
+              <motion.li
+                key={label}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95, rotate: "3deg" }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+              >
                 <Link
                   href={href}
                   aria-label={label}
@@ -59,10 +69,10 @@ export const Footer = () => {
                 >
                   <Icon size={30} />
                 </Link>
-              </li>
+              </motion.li>
             ))}
           </ul>
-        </div>
+        </motion.div>
       </footer>
     </div>
   );
