@@ -118,7 +118,9 @@ const Direction = ({ prop }: { prop: number }) => {
 
 function Stack() {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       id="stack"
       className="relative grid-cols-3 py-12 justify-center items-center backdrop-blur"
     >
@@ -140,7 +142,7 @@ function Stack() {
           <Direction prop={120} />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

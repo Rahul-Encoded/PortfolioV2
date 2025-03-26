@@ -384,7 +384,9 @@ function Portfolio() {
   ];
 
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       id="portfolio"
       className="p-6 bg-secondary-900 text-primary/80 backdrop-blur"
     >
@@ -418,7 +420,7 @@ function Portfolio() {
       </div>
 
       <HorizontalScrollCarousel selectedType={selectedType} />
-    </section>
+    </motion.section>
   );
 }
 

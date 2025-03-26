@@ -104,7 +104,9 @@ function Hero() {
   }, [currentIndex]);
 
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       id="about"
       className="relative flex min-h-screen items-center justify-center px-6 py-24 backdrop-blur"
     >
@@ -151,7 +153,7 @@ function Hero() {
           <FiArrowRight className="text-lg" />
         </motion.button>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
