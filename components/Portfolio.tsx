@@ -284,7 +284,7 @@ const HorizontalScrollCarousel = ({
     target: targetRef,
   });
 
-  const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 20 })
+  const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30 })
   const x = useTransform(scaleX, [0, 1], ["1%", "-99%"]);
 
   // **Filter Projects Based on Selected Type**
@@ -393,11 +393,11 @@ function Portfolio() {
     >
       <h2 className="text-5xl font-bold text-center mb-4">
         <p className="group relative">
-          <span className="group-hover:opacity-0 transition-opacity duration-300">
-            ⚒️WORK
+          <span className="group-hover:opacity-0 transition-opacity duration-400">
+            ⚒️WORK.
           </span>
-          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute left-169">
-            PORTFOLIO
+          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-400 absolute left-169">
+            PORTFOLIO.
           </span>
         </p>
       </h2>

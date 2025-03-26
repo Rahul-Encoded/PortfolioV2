@@ -9,6 +9,7 @@ import {
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
+import { DrawCircleText } from "./Me";
 
 const COLORS = [
   "#FF6B6B", // 🔴 Soft Red (Energetic, Alert, Passionate)
@@ -159,6 +160,9 @@ function Hero() {
           View my CV
           <FiArrowRight className="text-lg" />
         </motion.button>
+        <br></br>
+        <br></br>
+        <DrawCircleText/>
       </div>
     </motion.section>
   );
