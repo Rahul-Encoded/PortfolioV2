@@ -11,6 +11,7 @@ import { Footer } from "@/components/Footbar";
 import Contact from "@/components/Contact";
 import { useEffect } from "react";
 import Lenis from "lenis";
+import PageWrapper from "@/components/PageWrapper";
 
 export default function Home() {
   useEffect(() => {
@@ -27,14 +28,16 @@ export default function Home() {
   return (
     <>
       <Background />
-      <Navbar />
-      <Hero />
-      <Stack />
-      <Portfolio />
-      <KeyMetrics />
-      <Future />
-      <Contact />
-      <Footer />
+      <PageWrapper>
+        <Navbar />
+        <Hero />
+        <Stack />
+        <Portfolio />
+        <KeyMetrics />
+        <Future />
+        <Contact />
+        <Footer />
+      </PageWrapper>
     </>
   );
 }
