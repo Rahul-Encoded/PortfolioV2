@@ -32,7 +32,7 @@ function Future() {
       >
         <div className="md:w-1/4 pr-8 mb-12 md:mb-0">
           <h2 className="text-5xl font-extrabold sticky top-20 text-primary/80">
-            🚀CURRENTLY
+            🚀CURRENTLY.
           </h2>
         </div>
         <div className="md:w-3/4">

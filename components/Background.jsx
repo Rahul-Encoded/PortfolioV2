@@ -5,6 +5,7 @@ import {
   useMotionTemplate,
   useMotionValue,
   motion,
+  useScroll,
 } from "framer-motion";
 import { useEffect, useRef } from "react";
 
@@ -217,13 +218,28 @@ const ParticlesBackground = () => {
     };
   }, []);
 
+  const { scrollYProgress } = useScroll();
+
   return (
-    <motion.section
-      style={{ backgroundImage }}
-      className="fixed inset-0 w-full h-full -z-10 pointer-events-none"
-    >
-      <canvas ref={canvasRef} />
-    </motion.section>
+    <>
+      <motion.div
+        style={{
+          scaleX: scrollYProgress,
+          background: color,
+          position: "sticky",
+          top: 0,
+          width: "100%",
+          height: "20px",
+        }}
+        className="-z-15"
+      />
+      <motion.section
+        style={{ backgroundImage }}
+        className="fixed inset-0 w-full h-full -z-10 pointer-events-none"
+      >
+        <canvas ref={canvasRef} />
+      </motion.section>
+    </>
   );
 };
 

@@ -126,11 +126,11 @@ function Stack() {
     >
       <h2 className="text-center text-5xl font-bold mb-6 text-primary/70">
         <p className="group relative">
-          <span className="group-hover:opacity-0 transition-opacity duration-300">
-            🤹🏻‍♂️SKILLS
+          <span className="group-hover:opacity-0 transition-opacity duration-400">
+            🤹🏻‍♂️SKILLS.
           </span>
-          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute left-187">
-            STACK
+          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-400 absolute left-187">
+            STACK.
           </span>
         </p>
       </h2>

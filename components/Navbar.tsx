@@ -41,10 +41,10 @@ function Navbar() {
                 className="transform hover:text-primary/20 transition-all duration-300 ease-in-out"
               >
                 <p className="group relative">
-                  <span className="group-hover:opacity-0 transition-opacity duration-300">
+                  <span className="group-hover:opacity-0 transition-opacity duration-400">
                     {link.title}
                   </span>
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute left-0 text-primary">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-400 absolute -left-2 text-primary">
                     {link.alt}
                   </span>
                 </p>

@@ -115,9 +115,16 @@ function Hero() {
           Open for work
         </span>
         <h1 className="text-primary/40 text-5xl">Hi!🙋🏻‍♂️I am</h1>
-        <h1 className="bg-gradient-to-br from-primary to-secondary-400 bg-clip-text font-black leading-tight text-transparent text-7xl py-2">
-          RAHUL
-        </h1>
+        <h2 className="group relative bg-gradient-to-br from-purple-300 to-purple-800 bg-clip-text font-black leading-tight text-transparent text-7xl py-2">
+          
+            <span className="group-hover:opacity-0 transition-opacity duration-400">
+              Rahul.
+            </span>
+            <span className="opacity-0 group-hover:opacity-100 transition-opacity ease-initial duration-400 absolute -left-21 bg-gradient-to-br from-purple-300 to-purple-800 bg-clip-text font-black leading-tight text-transparent text-7xl">
+              Harbinger.
+            </span>
+          
+        </h2>
         <Image
           src="/assets/me.jpg"
           alt="Picture of Rahul"

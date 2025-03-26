@@ -45,10 +45,10 @@ export const Footer = () => {
             className="text-primary/20 group relative"
             data-hover-text="Thanks for stopping by!"
           >
-            <span className="group-hover:opacity-0 transition-opacity duration-300">
+            <span className="group-hover:opacity-0 transition-opacity duration-400">
               © 2025. Created and Crafted with all the creativity by Rahul.
             </span>
-            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute left-0 text-2xl text-purple-400 font-mono">
+            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-400 absolute -top-3 left-0 text-2xl bg-gradient-to-br from-purple-300 to-purple-800 bg-clip-text font-black leading-tight text-transparent py-2">
               THANKS FOR STOPPING BY!
             </span>
           </p>

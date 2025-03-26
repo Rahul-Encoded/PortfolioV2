@@ -16,14 +16,14 @@ export default function Home() {
   useEffect(() => {
     const lenis = new Lenis();
 
-    function raf(time: number) {  // ✅ Correct Type
+    function raf(time: number) {
+      // ✅ Correct Type
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
 
     requestAnimationFrame(raf);
   }, []);
-
   return (
     <>
       <Background />

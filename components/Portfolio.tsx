@@ -9,6 +9,7 @@ import {
   useMotionTemplate,
   useMotionValue,
   useScroll,
+  useSpring,
   useTransform,
 } from "framer-motion";
 
@@ -283,7 +284,8 @@ const HorizontalScrollCarousel = ({
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-99%"]);
+  const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 20 })
+  const x = useTransform(scaleX, [0, 1], ["1%", "-99%"]);
 
   // **Filter Projects Based on Selected Type**
   const filteredProjects = projects.filter(
