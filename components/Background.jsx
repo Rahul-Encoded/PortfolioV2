@@ -30,7 +30,7 @@ const ParticlesBackground = () => {
     });
   }, []);
 
-  const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, transparent 50%, ${color})`;
+  const backgroundImage = useMotionTemplate`radial-gradient(150% 150% at 50% 0%, transparent 50%, ${color})`;
 
   useEffect(() => {
     const canvas = canvasRef.current;
