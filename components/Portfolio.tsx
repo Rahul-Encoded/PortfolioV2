@@ -383,7 +383,7 @@ function Portfolio() {
 
   return (
     <section id="portfolio" className="p-6 bg-secondary-900 text-primary/80 backdrop-blur">
-      <h2 className="text-6xl font-bold text-center mb-4">PROJECTS</h2>
+      <h2 className="text-5xl font-bold text-center mb-4">⚒️WORK</h2>
 
       {/* **Filter Buttons** */}
       <div className="flex flex-wrap justify-center gap-3 mb-6 px-4 sm:px-6 md:px-8">

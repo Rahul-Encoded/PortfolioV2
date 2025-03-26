@@ -112,7 +112,7 @@ function Hero() {
         <span className="mb-2 inline-block rounded-full bg-gray-600/50 px-4 py-2 text-sm">
           Open for work
         </span>
-        <h1 className="text-primary/40 text-6xl">Hi!🙋🏻‍♂️I am</h1>
+        <h1 className="text-primary/40 text-5xl">Hi!🙋🏻‍♂️I am</h1>
         <h1 className="bg-gradient-to-br from-primary to-secondary-400 bg-clip-text font-black leading-tight text-transparent text-7xl py-2">
           RAHUL
         </h1>

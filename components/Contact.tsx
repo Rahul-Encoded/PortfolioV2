@@ -82,8 +82,8 @@ const Contact: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-6xl font-bold text-primary/80 mb-3">
-            GET IN TOUCH
+          <h2 className="text-5xl font-bold text-primary/80 mb-3">
+            🤙🏻GET IN TOUCH
           </h2>
           <p className="text-lg text-purple-500">
             Let&apos;s cook together!

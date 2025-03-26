@@ -61,9 +61,9 @@ function KeyMetrics() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-6xl font-bold mb-12 text-primary/80"
+          className="text-5xl font-bold mb-12 text-primary/80"
         >
-          KEY METRICS
+          🧑🏻‍💻KEY METRICS
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {metrics.map((metric, index) => (

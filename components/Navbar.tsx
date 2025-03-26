@@ -6,10 +6,10 @@ import ModeToggle from "./ModeToggle";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const navLinks = [
-  { title: "About", path: "#about" },
-  { title: "Portfolio", path: "#portfolio" },
-  { title: "Stack", path: "#stack" },
-  { title: "Contact", path: "#contact" },
+  { title: "About", path: "#about", alt: "😎Me" },
+  { title: "Portfolio", path: "#portfolio", alt: "⚒️Work" },
+  { title: "Stack", path: "#stack", alt: "🤹🏻‍♂️Skills" },
+  { title: "Contact", path: "#contact", alt: "🤙🏻Hire" },
 ];
 
 function Navbar() {
@@ -32,9 +32,16 @@ function Navbar() {
             <li key={index}>
               <Link
                 href={link.path}
-                className="transform hover:text-primary/20 transition-all duration-300 ease-in-out"
+                className="transform hover:text-primary/20 hover:scale-150 transition-all duration-300 ease-in-out"
               >
-                {link.title}
+                <p className="group relative">
+                  <span className="group-hover:opacity-0 transition-opacity duration-300">
+                    {link.title}
+                  </span>
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute left-0 text-primary">
+                    {link.alt}
+                  </span>
+                </p>
               </Link>
             </li>
           ))}
@@ -78,7 +85,7 @@ function Navbar() {
               >
                 {link.title}
               </Link>
-							<hr className="border-t border-primary/50 w-1/2 mx-auto" />
+              <hr className="border-t border-primary/50 w-1/2 mx-auto" />
             </li>
           ))}
         </ul>
