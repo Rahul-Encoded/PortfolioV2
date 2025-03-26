@@ -83,7 +83,14 @@ const Contact: React.FC = () => {
           className="text-center mb-12"
         >
           <h2 className="text-5xl font-bold text-primary/80 mb-3">
-            🤙🏻GET IN TOUCH
+          <p className="group relative">
+          <span className="group-hover:opacity-0 transition-opacity duration-300">
+          🤙🏻GET IN TOUCH
+          </span>
+          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute left-160">
+            CONTACT
+          </span>
+        </p>
           </h2>
           <p className="text-lg text-purple-500">
             Let&apos;s cook together!

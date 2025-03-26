@@ -118,9 +118,19 @@ const Direction = ({ prop }: { prop: number }) => {
 
 function Stack() {
   return (
-    <div id="stack" className="relative grid-cols-3 py-12 justify-center items-center backdrop-blur">
+    <div
+      id="stack"
+      className="relative grid-cols-3 py-12 justify-center items-center backdrop-blur"
+    >
       <h2 className="text-center text-5xl font-bold mb-6 text-primary/70">
-        🤹🏻‍♂️SKILLS
+        <p className="group relative">
+          <span className="group-hover:opacity-0 transition-opacity duration-300">
+            🤹🏻‍♂️SKILLS
+          </span>
+          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute left-187">
+            STACK
+          </span>
+        </p>
       </h2>
       <div className="w-4/5 mx-auto">
         <div className="border border-primary/20 rounded-xl mb-2 overflow-hidden [mask-image:linear-gradient(to_right,_transparent,_black_20%,_black_80%,_transparent)]">

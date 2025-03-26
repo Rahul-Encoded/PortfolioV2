@@ -283,7 +283,7 @@ const HorizontalScrollCarousel = ({
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-77%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-99%"]);
 
   // **Filter Projects Based on Selected Type**
   const filteredProjects = projects.filter(
@@ -309,7 +309,7 @@ const HorizontalScrollCarousel = ({
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="border border-primary/20 bg-primary/10 backdrop-blur-3xl rounded-lg shadow-lg p-5 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-transform w-[350px] lg:w-[400px]"
+              className="border border-primary/20 bg-primary/10 backdrop-blur-3xl rounded-lg shadow-lg p-5 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-transform w-[350px] lg:w-[400px] mx-60"
             >
               <Image
                 src={project.image}
@@ -319,7 +319,9 @@ const HorizontalScrollCarousel = ({
                 unoptimized={true}
                 className="w-full h-52 object-cover rounded-md mb-4"
               />
-              <h3 className="text-2xl text-purple-500 font-semibold">{project.title}</h3>
+              <h3 className="text-2xl text-purple-500 font-semibold">
+                {project.title}
+              </h3>
               <p className="text-primary/30 text-sm mb-2">{project.year}</p>
               <p className="text-primary/70 mb-3">{project.description}</p>
 
@@ -382,8 +384,20 @@ function Portfolio() {
   ];
 
   return (
-    <section id="portfolio" className="p-6 bg-secondary-900 text-primary/80 backdrop-blur">
-      <h2 className="text-5xl font-bold text-center mb-4">⚒️WORK</h2>
+    <section
+      id="portfolio"
+      className="p-6 bg-secondary-900 text-primary/80 backdrop-blur"
+    >
+      <h2 className="text-5xl font-bold text-center mb-4">
+        <p className="group relative">
+          <span className="group-hover:opacity-0 transition-opacity duration-300">
+            ⚒️WORK
+          </span>
+          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute left-169">
+            PORTFOLIO
+          </span>
+        </p>
+      </h2>
 
       {/* **Filter Buttons** */}
       <div className="flex flex-wrap justify-center gap-3 mb-6 px-4 sm:px-6 md:px-8">

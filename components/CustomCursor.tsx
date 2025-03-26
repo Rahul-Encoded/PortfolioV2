@@ -19,13 +19,13 @@ function CustomCursor() {
       mouseY.set(e.clientY - 19);
     };
 
-    const handleMouseEnter = () => scale.set(2);
+    const handleMouseEnter = () => scale.set(3);
     const handleMouseLeave = () => scale.set(1);
 
     window.addEventListener("mousemove", mouseMove);
     
     // Select footer elements and Next.js Link components
-    const interactiveElements = document.querySelectorAll("footer, [href]");
+    const interactiveElements = document.querySelectorAll("footer, [href], h2");
     interactiveElements.forEach(el => {
       el.addEventListener("mouseenter", handleMouseEnter);
       el.addEventListener("mouseleave", handleMouseLeave);
