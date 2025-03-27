@@ -284,7 +284,7 @@ const HorizontalScrollCarousel = ({
     target: targetRef,
   });
 
-  const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30 })
+  const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 35 })
   const x = useTransform(scaleX, [0, 1], ["1%", "-99%"]);
 
   // **Filter Projects Based on Selected Type**
