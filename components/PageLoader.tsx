@@ -23,7 +23,7 @@ export default function PageLoader({ children }: { children: React.ReactNode }) 
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="fixed inset-0 z-[9999] bg-black overflow-hidden"
+            className="fixed inset-0 -z-10 bg-black overflow-hidden"
           >
             <motion.div
               className="absolute"

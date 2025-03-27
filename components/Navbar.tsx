@@ -9,8 +9,8 @@ import { useTransitionRouter } from "next-view-transitions";
 
 const navLinks = [
   { title: "About", path: "#about", alt: "😎Me" },
-  { title: "Portfolio", path: "#portfolio", alt: "⚒️Work" },
   { title: "Stack", path: "#stack", alt: "🤹🏻‍♂️Skills" },
+  { title: "Portfolio", path: "#portfolio", alt: "⚒️Work" },
   { title: "Contact", path: "#contact", alt: "🤙🏻Hire" },
 ];
 
@@ -28,7 +28,7 @@ function Navbar() {
   const router = useTransitionRouter();
 
   return (
-    <div className="z-1 fixed flex justify-center w-full text-primary/70 font-bold">
+    <div className="z-10 fixed flex justify-center w-full text-primary/70 font-bold">
       {/* ✅ Desktop Navbar */}
       <div className="border border-primary/20 mt-8 backdrop-blur-3xl rounded-3xl hidden md:flex items-center justify-center p-2 max-w-[500px] mx-auto hover:shadow-lg hover:shadow-primary/20">
         <ul className="flex flex-row p-2 space-x-8">

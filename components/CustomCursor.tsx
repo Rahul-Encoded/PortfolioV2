@@ -1,6 +1,5 @@
 "use client";
-
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 function CustomCursor() {
@@ -22,17 +21,22 @@ function CustomCursor() {
     const handleMouseEnter = () => scale.set(3);
     const handleMouseLeave = () => scale.set(1);
 
-    window.addEventListener("mousemove", mouseMove);
-    
-    // Select footer elements and Next.js Link components
-    const interactiveElements = document.querySelectorAll("footer, h2, [href]");
-    interactiveElements.forEach(el => {
-      el.addEventListener("mouseenter", handleMouseEnter);
-      el.addEventListener("mouseleave", handleMouseLeave);
-    });
+    // Wait a short time after initial render to ensure all elements are loaded
+    const timer = setTimeout(() => {
+      window.addEventListener("mousemove", mouseMove);
+   
+      // Select footer elements and Next.js Link components
+      const interactiveElements = document.querySelectorAll("footer, h2, [href]");
+      interactiveElements.forEach(el => {
+        el.addEventListener("mouseenter", handleMouseEnter);
+        el.addEventListener("mouseleave", handleMouseLeave);
+      });
+    }, 5500); // Match the PageLoader duration
 
     return () => {
+      clearTimeout(timer);
       window.removeEventListener("mousemove", mouseMove);
+      const interactiveElements = document.querySelectorAll("footer, h2, [href]");
       interactiveElements.forEach(el => {
         el.removeEventListener("mouseenter", handleMouseEnter);
         el.removeEventListener("mouseleave", handleMouseLeave);
@@ -47,7 +51,7 @@ function CustomCursor() {
         y: smoothY,
         scale: scale
       }}
-      className="z-[2] h-[38px] w-[38px] rounded-full fixed top-0 left-0 pointer-events-none mix-blend-difference bg-white"
+      className="z-50 h-[38px] w-[38px] rounded-full fixed top-0 left-0 pointer-events-none mix-blend-difference bg-white"
     ></motion.div>
   );
 }
