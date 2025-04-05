@@ -31,14 +31,16 @@ export default function Home() {
       <PageLoader>
         <Background />
         <PageWrapper>
-          <Navbar />
-          <Hero />
-          <Stack />
-          <Portfolio />
-          <KeyMetrics />
-          <Future />
-          <Contact />
-          <Footer />
+          <div className="min-w-[1600px] max-w-[1600px] mx-auto overflow-hidden">
+            <Navbar />
+            <Hero />
+            <Stack />
+            <Portfolio />
+            <KeyMetrics />
+            <Future />
+            <Contact />
+            <Footer />
+          </div>
         </PageWrapper>
       </PageLoader>
     </>

@@ -285,7 +285,7 @@ const HorizontalScrollCarousel = ({
   });
 
   const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30 })
-  const x = useTransform(scaleX, [0, 1], ["1%", "-99%"]);
+  const x = useTransform(scaleX, [0, 1], ["1%", "-120%"]);
 
   // **Filter Projects Based on Selected Type**
   const filteredProjects = projects.filter(
@@ -301,7 +301,7 @@ const HorizontalScrollCarousel = ({
   return (
     <section
       ref={targetRef}
-      className="relative h-[400vh] bg-primary-900 backdrop-blur"
+      className="relative h-[150vh] bg-primary-900 backdrop-blur"
     >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div
@@ -311,7 +311,7 @@ const HorizontalScrollCarousel = ({
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="border border-primary/20 bg-primary/10 backdrop-blur-3xl rounded-lg shadow-lg p-5 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-transform w-[400px] mx-25"
+              className="border border-primary/20 bg-primary/10 backdrop-blur-3xl rounded-lg shadow-lg p-5 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-transform w-[350px] lg:w-[400px] mx-auto md:mx-25"
             >
               <Image
                 src={project.image}
@@ -403,7 +403,7 @@ function Portfolio() {
       </h2>
 
       {/* **Filter Buttons** */}
-      <div className="flex flex-wrap justify-center gap-3 mb-6 px-4">
+      <div className="flex flex-wrap justify-center gap-3 mb-6 px-4 sm:px-6 md:px-8">
         {types.map((type) => (
           <button
             key={type}
