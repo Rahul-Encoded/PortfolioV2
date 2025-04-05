@@ -303,7 +303,7 @@ const HorizontalScrollCarousel = ({
       ref={targetRef}
       className="relative h-[400vh] bg-primary-900 backdrop-blur"
     >
-      <div className="sticky bottom-0 flex h-screen items-center overflow-hidden">
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div
           style={{ x }}
           className="flex gap-6 bg-primary-600 backdrop-blur-3xl"
@@ -311,7 +311,7 @@ const HorizontalScrollCarousel = ({
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="border border-primary/20 bg-primary/10 backdrop-blur-3xl rounded-lg shadow-lg p-5 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-transform w-[350px] lg:w-[400px] mx-auto md:mx-25"
+              className="border border-primary/20 bg-primary/10 backdrop-blur-3xl rounded-lg shadow-lg p-5 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-transform w-[350px] lg:w-[400px] mx-25"
             >
               <Image
                 src={project.image}
@@ -403,7 +403,7 @@ function Portfolio() {
       </h2>
 
       {/* **Filter Buttons** */}
-      <div className="flex flex-wrap justify-center gap-3 mb-6 px-4 sm:px-6 md:px-8">
+      <div className="flex flex-wrap justify-center gap-3 mb-6 px-4">
         {types.map((type) => (
           <button
             key={type}
