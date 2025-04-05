@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import {
   animate,
   motion,
+  useInView,
   useMotionTemplate,
   useMotionValue,
 } from "framer-motion";
@@ -67,6 +68,8 @@ const Contact: React.FC = () => {
 
   const border = useMotionTemplate`1px solid ${color}`;
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
+  const ref = React.useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: false });
 
   return (
     <section
@@ -76,25 +79,24 @@ const Contact: React.FC = () => {
       <div className="container mx-auto px-6">
         {/* Title */}
         <motion.div
+          ref={ref}
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="text-center mb-12"
         >
           <h2 className="text-5xl font-bold text-primary/80 mb-3">
-          <p className="group relative">
-          <span className="group-hover:opacity-0 transition-opacity duration-400">
-          🤙🏻GET IN TOUCH.
-          </span>
-          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-400 absolute left-160">
-            CONTACT.
-          </span>
-        </p>
+            <p className="group relative">
+              <span className="group-hover:opacity-0 transition-opacity duration-400">
+                🤙🏻GET IN TOUCH.
+              </span>
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-400 absolute left-160">
+                CONTACT.
+              </span>
+            </p>
           </h2>
-          <p className="text-lg text-purple-500">
-            Let&apos;s cook together!
-          </p>
+          <p className="text-lg text-purple-500">Let&apos;s cook together!</p>
           <div className="w-20 h-1 bg-primary mx-auto mt-2"></div>
         </motion.div>
 
@@ -102,8 +104,9 @@ const Contact: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Info */}
           <motion.div
+            ref={ref}
             initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="glassmorphism p-8 rounded-2xl shadow-lg backdrop-blur-xl hover:shadow-lg hover:shadow-primary/20"
@@ -129,12 +132,8 @@ const Contact: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-primary/70">
-                    Email
-                  </h4>
-                  <p className="text-secondary-400">
-                    rahulm03@outlook.com
-                  </p>
+                  <h4 className="font-semibold text-primary/70">Email</h4>
+                  <p className="text-secondary-400">rahulm03@outlook.com</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
@@ -160,12 +159,8 @@ const Contact: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-primary/70">
-                    Location
-                  </h4>
-                  <p className="text-secondary-400">
-                    Jamnagar, Gujarat, India
-                  </p>
+                  <h4 className="font-semibold text-primary/70">Location</h4>
+                  <p className="text-secondary-400">Jamnagar, Gujarat, India</p>
                 </div>
               </div>
             </div>
@@ -173,8 +168,9 @@ const Contact: React.FC = () => {
 
           {/* Contact Form */}
           <motion.div
+            ref={ref}
             initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="glassmorphism p-8 rounded-2xl shadow-lg backdrop-blur-xl hover:shadow-lg hover:shadow-primary/20"

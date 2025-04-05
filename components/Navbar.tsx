@@ -42,7 +42,7 @@ function Navbar() {
               <Link
                 onClick={(e) => {
                   e.preventDefault();
-                  router.push(link.path, {onTransitionReady: pageAnimation,})
+                  router.push(link.path, { onTransitionReady: pageAnimation });
                 }}
                 href={link.path}
                 className="transform hover:text-primary/20 transition-all duration-300 ease-in-out"
@@ -105,7 +105,7 @@ function Navbar() {
       </div>
     </div>
   );
-};
+}
 
 const pageAnimation = () => {
   document.documentElement.animate(
