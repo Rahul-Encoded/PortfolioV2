@@ -101,7 +101,7 @@ const Contact: React.FC = () => {
         </motion.div>
 
         {/* Contact Grid */}
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-2 gap-12">
           {/* Contact Info */}
           <motion.div
             ref={ref}
