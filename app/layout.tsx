@@ -30,6 +30,7 @@ export default function RootLayout({
   return (
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning>
+        <meta name="viewport" content="width=1024, user-scalable=no" />
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >

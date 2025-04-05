@@ -64,47 +64,6 @@ function Navbar() {
         </div>
       </div>
 
-      {/* ✅ Mobile Navbar */}
-      <div className="md:hidden flex flex-row items-center absolute top-5 w-full z-50 text-primary/70 p-2">
-        {/* ✅ ModeToggle disappears when nav is open */}
-        {!nav && (
-          <div className="mr-auto ml-3">
-            <ModeToggle />
-          </div>
-        )}
-
-        {/* ✅ Hamburger Menu with more spacing */}
-        <div
-          onClick={toggleNav}
-          className="p-2 border border-primary/50 rounded-lg mr-3"
-        >
-          {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
-        </div>
-      </div>
-
-      {/* ✅ Mobile Menu */}
-      <div
-        className={`fixed left-0 top-0 w-full h-full bg-secondary/90 transform transition-transform duration-300 ${
-          nav ? "translate-x-0" : "translate-x-full"
-        }`}
-        aria-hidden={!nav}
-        style={{ display: nav ? "block" : "none" }}
-      >
-        <ul className="flex flex-col items-center justify-center space-y-8 h-full">
-          {navLinks.map((link, index) => (
-            <li key={index} className="w-full text-center">
-              <Link
-                href={link.path}
-                onClick={closeNav}
-                className="text-5xl block pb-4"
-              >
-                {link.title}
-              </Link>
-              <hr className="border-t border-primary/50 w-1/2 mx-auto" />
-            </li>
-          ))}
-        </ul>
-      </div>
     </div>
   );
 }
