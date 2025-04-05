@@ -301,7 +301,7 @@ const HorizontalScrollCarousel = ({
   return (
     <section
       ref={targetRef}
-      className="relative h-[400vh] bg-primary-900 backdrop-blur"
+      className="sticky h-[400vh] m-0 bg-primary-900 backdrop-blur"
     >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div
