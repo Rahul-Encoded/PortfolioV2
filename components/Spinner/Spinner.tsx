@@ -45,7 +45,7 @@ export default function Spinner({
         color: color 
       }}
     >
-      <p aria-label={text} />
+      
       <p aria-hidden="true" className="text font-black">
         {characters.map((ch, i) => (
           <motion.span

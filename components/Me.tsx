@@ -29,7 +29,7 @@ export const DrawCircleText = () => {
         <svg
           viewBox="0 0 286 73"
           fill="none"
-          className="absolute -left-0 -right-6 -top-13 bottom-1 translate-y-1"
+          className="absolute inset-x-0 top-0 translate-y-[-50%] w-full h-auto"
         >
           <motion.path
             initial={{ pathLength: 0 }}

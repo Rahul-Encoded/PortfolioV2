@@ -87,6 +87,8 @@ function Navbar() {
         className={`fixed left-0 top-0 w-full h-full bg-secondary/90 transform transition-transform duration-300 ${
           nav ? "translate-x-0" : "translate-x-full"
         }`}
+        aria-hidden={!nav}
+        style={{ display: nav ? "block" : "none" }}
       >
         <ul className="flex flex-col items-center justify-center space-y-8 h-full">
           {navLinks.map((link, index) => (
