@@ -311,7 +311,7 @@ const HorizontalScrollCarousel = ({
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="border border-primary/20 bg-primary/10 backdrop-blur-3xl rounded-lg shadow-lg p-5 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-transform w-[400px] mx-60"
+              className="border border-primary/20 bg-primary/10 backdrop-blur-3xl rounded-lg shadow-lg p-5 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-transform w-[400px] mx-25"
             >
               <Image
                 src={project.image}
