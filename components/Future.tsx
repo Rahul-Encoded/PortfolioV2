@@ -28,14 +28,14 @@ function Future() {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="container mx-auto flex flex-row"
+        className="container mx-auto flex flex-col md:flex-row"
       >
-        <div className="w-1/4 pr-8 mb-0">
+        <div className="md:w-1/4 pr-8 mb-12 md:mb-0">
           <h2 className="text-5xl font-extrabold sticky top-20 text-primary/80">
             🚀CURRENTLY.
           </h2>
         </div>
-        <div className="w-3/4">
+        <div className="md:w-3/4">
           {futureProjects.map((project) => (
             <div
               key={project.id}
