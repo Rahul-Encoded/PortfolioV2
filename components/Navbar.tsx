@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import ModeToggle from "./ModeToggle";
-import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { useTransitionRouter } from "next-view-transitions";
 
@@ -15,15 +14,6 @@ const navLinks = [
 ];
 
 function Navbar() {
-  const [nav, setNav] = useState(false);
-
-  const toggleNav = () => {
-    setNav(!nav);
-  };
-
-  const closeNav = () => {
-    setNav(false);
-  };
 
   const router = useTransitionRouter();
 
@@ -63,7 +53,6 @@ function Navbar() {
           <ModeToggle />
         </div>
       </div>
-
     </div>
   );
 }
