@@ -285,7 +285,7 @@ const HorizontalScrollCarousel = ({
   });
 
   const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30 })
-  const x = useTransform(scaleX, [0, 1], ["1%", "-120%"]);
+  const x = useTransform(scaleX, [0, 1], ["1%", "-95%"]);
 
   // **Filter Projects Based on Selected Type**
   const filteredProjects = projects.filter(
@@ -301,7 +301,7 @@ const HorizontalScrollCarousel = ({
   return (
     <section
       ref={targetRef}
-      className="relative h-[150vh] bg-primary-900 backdrop-blur"
+      className="relative h-[200vh] bg-primary-900 backdrop-blur"
     >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div
