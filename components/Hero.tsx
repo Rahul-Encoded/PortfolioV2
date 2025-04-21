@@ -155,7 +155,7 @@ function Hero() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="cursor-pointer mt-6 flex w-fit text-primary/40 items-center gap-2 rounded-full px-5 py-3"
-          onClick={() => window.open("/assets/2303.pdf", "_blank")}
+          onClick={() => window.open("/assets/RahulResume.pdf", "_blank")}
         >
           View my CV
           <FiArrowRight className="text-lg" />

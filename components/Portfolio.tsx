@@ -15,6 +15,26 @@ import {
 
 const projects = [
   {
+    id: 16,
+    year: 2025,
+    title: "ProxyPapi",
+    description:
+      "Your API's ultimate wingman — handles rate limits so you don’t get ghosted by third-party services.",
+    skills: ["TypeScript", "API Integration", "Express.js", "MongoDB", "System Design"],
+    image: "/assets/rate.png",
+    Github: "https://github.com/Rahul-Encoded/ProxyPapi",
+  },
+  {
+    id: 15,
+    year: 2025,
+    title: "CodeBreaker",
+    description:
+      "A stealthy, AI-powered tool to extract and solve coding questions from screen captures—undetectable, dynamic, and blazing fast. 🔥💻",
+    skills: ["Python", "API Integration", "PyQT", "OCR", "google-generativeai"],
+    image: "/assets/cheat.png",
+    Github: "https://github.com/Rahul-Encoded/CodeBreaker",
+  },
+  {
     id: 5,
     year: 2025,
     title: "Connext (Full-Stack Next.js Social Media App)",
@@ -256,7 +276,7 @@ const projectCategories = {
     "Seaborn",
     "Matplotlib",
   ],
-  "Generative AI": ["Langchain", "FAISS", "OpenAI API"],
+  "Generative AI": ["Langchain", "FAISS", "OpenAI API", "google-generativeai"],
   IoT: ["Raspberry Pi", "Proteus Design Suite"],
 };
 
