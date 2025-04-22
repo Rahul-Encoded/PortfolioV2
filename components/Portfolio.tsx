@@ -193,7 +193,7 @@ const projects = [
       "A responsive reimagined recreation of Google Drive using React.js, Framer Motion, and Tailwind CSS. Features realistic drag-and-drop animations and an intuitive user interface.",
     skills: ["React.js", "Framer Motion", "Tailwind CSS"],
     image: "/assets/google_drive_clone.png",
-    Github: "Not Hosted",
+    Github: "https://github.com/Rahul-Encoded/DriveMock",
   },
   {
     id: 12,
