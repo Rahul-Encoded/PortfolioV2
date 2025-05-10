@@ -15,6 +15,16 @@ import {
 
 const projects = [
   {
+    id: 17,
+    year: 2025,
+    title: "SussySolver",
+    description:
+      "Apple Notes in a nutshell",
+    skills: ["TypeScript", "API Integration", "Python", "FastAPI"],
+    image: "/assets/solve.png",
+    Github: "https://github.com/Rahul-Encoded/SussySolver",
+  },
+  {
     id: 16,
     year: 2025,
     title: "ProxyPapi",
