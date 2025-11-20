@@ -15,6 +15,16 @@ import {
 
 const projects = [
   {
+    id: 18,
+    year: 2025,
+    title: "LinkLocked",
+    description:
+      "An n8n automation workflow for LinkedIn job application Scrape prep",
+    skills: ["JavaScript", "API Integration", "N8N"],
+    image: "/assets/n8n.png",
+    Github: "https://github.com/Rahul-Encoded/LinkLocked",
+  },
+  {
     id: 17,
     year: 2025,
     title: "SussySolver",

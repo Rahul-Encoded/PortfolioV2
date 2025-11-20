@@ -32,7 +32,7 @@ const metrics = [
   },
   {
     id: 5,
-    value: "900+",
+    value: "400+",
     label: "Commits on GitHub",
     description: "Building across disciplines—Web, AI, IoT, and more.",
   },
