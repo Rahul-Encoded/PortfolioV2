@@ -1,0 +1,1 @@
+export type ProjectType = "Data Analysis" | "Machine Learning" | "Development" | "AI" | "IoT" | "All";
