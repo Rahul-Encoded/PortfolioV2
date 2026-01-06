@@ -9,15 +9,7 @@ import {
   useMotionValue,
 } from "framer-motion";
 import emailjs from "@emailjs/browser";
-
-const COLORS = [
-  "#FF6B6B", // 🔴 Soft Red (Energetic, Alert, Passionate)
-  "#FFD93D", // 🟡 Bright Yellow (Warm, Attention-Grabbing, Optimistic)
-  "#6BCB77", // 🟢 Fresh Green (Natural, Growth-Oriented, Calming)
-  "#4D96FF", // 🔵 Vibrant Blue (Trustworthy, Cool, Professional)
-  "#FF6BA3", // 🌸 Pinkish Magenta (Playful, Creative, Youthful)
-  "#8e24aa", // 🟣 Deep Purple (Royal, Mysterious, Luxurious)
-];
+import { COLORS } from "./utils/constants";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({

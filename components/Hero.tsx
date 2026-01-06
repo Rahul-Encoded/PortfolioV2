@@ -10,25 +10,9 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
 import { DrawCircleText } from "./Me";
+import { COLORS } from "./utils/constants";
+import { words } from "./utils/constants";
 
-const COLORS = [
-  "#FF6B6B", // 🔴 Soft Red (Energetic, Alert, Passionate)
-  "#FFD93D", // 🟡 Bright Yellow (Warm, Attention-Grabbing, Optimistic)
-  "#6BCB77", // 🟢 Fresh Green (Natural, Growth-Oriented, Calming)
-  "#4D96FF", // 🔵 Vibrant Blue (Trustworthy, Cool, Professional)
-  "#FF6BA3", // 🌸 Pinkish Magenta (Playful, Creative, Youthful)
-  "#8e24aa", // 🟣 Deep Purple (Royal, Mysterious, Luxurious)
-];
-
-const words = [
-  "UI/UX DESIGN",
-  "FULL-STACK DEVELOPMENT",
-  "DATA ANALYSIS",
-  "MACHINE LEARNING",
-  "INTERNET OF THINGS",
-  "ELECTRONICS",
-  "GENERATIVE AI",
-];
 const symbols = "!@#$%^&*()_-+=<>?/|:;";
 
 function Hero() {

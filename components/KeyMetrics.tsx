@@ -2,47 +2,7 @@
 
 import { useInView, motion } from "framer-motion";
 import React from "react";
-
-const metrics = [
-  {
-    id: 1,
-    value: "1+",
-    label: "Years of Experience",
-    description: "Relentlessly mastering the technologies shaping the future.",
-  },
-  {
-    id: 2,
-    value: "20+",
-    label: "Projects Completed",
-    description:
-      "From AI-driven solutions to full-stack applications and IoT systems.",
-  },
-  {
-    id: 3,
-    value: "10+",
-    label: "Technologies Mastered",
-    description: "Bridging Web Dev, Data Science, AI, IoT, and beyond.",
-  },
-  {
-    id: 4,
-    value: "99%",
-    label: "Code Quality",
-    description:
-      "Balancing versatility and precision—clean, scalable, and optimized code.",
-  },
-  {
-    id: 5,
-    value: "400+",
-    label: "Commits on GitHub",
-    description: "Building across disciplines—Web, AI, IoT, and more.",
-  },
-  {
-    id: 6,
-    value: "∞",
-    label: "Curiosity & Learning",
-    description: `"Jack of all trades, master of none, but oftentimes better than master of one."—exploring AI, LLMs, and game dev.`,
-  },
-];
+import { metrics } from "./utils/constants";
 
 function KeyMetrics() {
   const ref = React.useRef<HTMLElement>(null);
