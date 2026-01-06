@@ -152,7 +152,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-primary/70">Location</h4>
-                  <p className="text-secondary-400">Jamnagar, Gujarat, India</p>
+                  <p className="text-secondary-400">Bangalore, Karnataka, India</p>
                 </div>
               </div>
             </div>
